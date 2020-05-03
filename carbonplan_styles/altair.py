@@ -22,7 +22,7 @@ colors = {
 def common():
     return {
         'config': {
-            'view': {'height': 300, 'width': 400,},
+            'view': {'height': 300, 'width': 400},
             'mark': {'color': 'dark', 'fill': 'dark'},
         }
     }
