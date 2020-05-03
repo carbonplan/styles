@@ -1,6 +1,6 @@
 # CarbonPlan Styles
 
-A collection of plotting styles for Matplotlib[https://matplotlib.org/] and Altair[https://altair-viz.github.io/].
+A collection of plotting styles for [Matplotlib](https://matplotlib.org/) and [Altair](https://altair-viz.github.io/).
 
 ![CI](https://github.com/jhamman/carbonplan-styles/workflows/CI/badge.svg)
 
