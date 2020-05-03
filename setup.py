@@ -11,7 +11,7 @@ with open('requirements.txt') as f:
     install_requires = f.read().strip().split('\n')
 
 
-if os.pathexists('README.MD'):
+if os.path.exists('README.md'):
     with open('README.md') as f:
         long_description = f.read()
 else:
