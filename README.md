@@ -25,7 +25,7 @@ Both styels/themes are automatically made available in Matplotlib and Altair
 plt.style.use('carbonplan_dark')
 ```
 
-_Note: The install of this package adds Matplotlib style sheets to `~/.config/matplotlib`. This will only happen once and future updates will need to be done manually. _
+_Note: The install of this package adds Matplotlib style sheets to `~/.config/matplotlib`. This will only happen once and future updates will need to be done manually._
 
 #### Altair
 
