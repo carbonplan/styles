@@ -38,11 +38,3 @@ def light():
     c = common()
 
     return c
-
-
-# register the custom theme under a chosen name
-alt.themes.register('carbonplan_dark', dark)
-alt.themes.register('carbonplan_light', light)
-
-# enable the newly registered theme
-# alt.themes.enable('carbonplan_dark')

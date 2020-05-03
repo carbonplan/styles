@@ -17,14 +17,18 @@ There are currently two separate styles/themes available in this package:
 1. `carbonplan_dark`: black background, lighter colors
 2. `carbonplan_light`: white background, darker colors
 
-Matplotlib sytle sheets are installed automatically.
+Both styels/themes are automatically made available in Matplotlib and Altair
+
+#### Matplotlib
 
 ```python
 plt.style.use('carbonplan_dark')
 ```
 
-We're still working out Altair's automatic entrypoints system. In the meantime, activation requires importing this library:
+_Note: The install of this package adds Matplotlib style sheets to `~/.config/matplotlib`. This will only happen once and future updates will need to be done manually. _
+
+#### Altair
 
 ```python
-import carbonplan_styles.altair
+alt.themes.enable('carbonplan_dark')
 ```

@@ -62,6 +62,13 @@ CLASSIFIERS = [
     'Topic :: Scientific/Engineering',
 ]
 
+ENTRY_POINTS = {
+    'altair.vegalite.v4.theme': [
+        'carbonplan_dark = carbonplan_styles.altair:dark',
+        'carbonplan_light = carbonplan_styles.altair:light',
+    ]
+}
+
 
 setup(
     name='carbonplan-styles',
@@ -74,6 +81,7 @@ setup(
     license='MIT',
     packages=find_packages(exclude=('tests',)),
     package_dir={'carbonplan_styles': 'carbonplan_styles'},
+    entry_points=ENTRY_POINTS,
     install_requires=install_requires,
     keywords=['matplotlib', 'altair'],
     classifiers=CLASSIFIERS,
