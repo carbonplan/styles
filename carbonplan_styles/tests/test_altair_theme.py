@@ -1,7 +1,7 @@
 import altair as alt
 import pytest
 
-import carbonplan_styles.altair
+import carbonplan_styles.altair  # noqa: F401
 
 
 @pytest.mark.parametrize('theme', ['carbonplan_dark', 'carbonplan_light'])
