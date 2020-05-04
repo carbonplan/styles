@@ -21,25 +21,25 @@ def theme(colors):
 
     return {
         'config': {
-            'arc': {'fill': markColor,},
-            'area': {'fill': markColor,},
-            'axisBand': {'grid': False,},
+            'arc': {'fill': markColor},
+            'area': {'fill': markColor},
+            'axisBand': {'grid': False},
             'axisBottom': axis,
             'axisLeft': axis,
             'axisRight': axis,
             'axisTop': axis,
             'background': backgroundColor,
-            'group': {'fill': backgroundColor,},
+            'group': {'fill': backgroundColor},
             'legend': {
                 'labelFont': labelfont,
                 'symbolSize': symbolSize,
                 'symbolType': 'circle',
                 'titleFont': font,
             },
-            'line': {'color': markColor, 'stroke': markColor,},
-            'trail': {'color': markColor, 'stroke': markColor,},
-            'path': {'stroke': markColor,},
-            'point': {'filled': True, 'color': markColor, 'size': symbolSize, 'cursor': 'pointer',},
+            'line': {'color': markColor, 'stroke': markColor},
+            'trail': {'color': markColor, 'stroke': markColor},
+            'path': {'stroke': markColor},
+            'point': {'filled': True, 'color': markColor, 'size': symbolSize, 'cursor': 'pointer'},
             'range': {
                 'category': [
                     colors[c]
@@ -75,13 +75,13 @@ def theme(colors):
                 #        "#e4007c",
                 #    ],
             },
-            'symbol': {'shape': 'circle',},
+            'symbol': {'shape': 'circle'},
             'style': {
-                'bar': {'fill': markColor,},
-                'text': {'font': sourcefont, 'fontWeight': fontWeight,},
+                'bar': {'fill': markColor},
+                'text': {'font': sourcefont, 'fontWeight': fontWeight},
             },
-            'title': {'anchor': 'start', 'fontWeight': fontWeight, 'font': font,},
-            'header': {'fontWeight': fontWeight, 'labelFont': labelfont, 'titleFont': font,},
+            'title': {'anchor': 'start', 'fontWeight': fontWeight, 'font': font},
+            'header': {'fontWeight': fontWeight, 'labelFont': labelfont, 'titleFont': font},
         },
     }
 

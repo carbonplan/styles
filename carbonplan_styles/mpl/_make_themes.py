@@ -14,7 +14,7 @@ ytick.color: {text}
 axes.axisbelow: True
 image.cmap: Greys
 font.family: sans-serif
-font.sans-serif: font
+font.sans-serif: {font}
 grid.linestyle: -
 axes.grid: False
 axes.facecolor: {background}
@@ -31,7 +31,7 @@ ytick.minor.size: 0
 def make_theme(mode):
     hex_colors = colors(mode)
     temp_colors = {k: v.strip('#') for k, v in hex_colors.items()}
-    return template.format(**temp_colors)
+    return template.format(font=font, **temp_colors)
 
 
 if __name__ == '__main__':
