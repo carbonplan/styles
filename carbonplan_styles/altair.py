@@ -1,40 +1,98 @@
-import altair as alt
-
-colors = {
-    # from theme.js
-    'text': '#ebebec',
-    'background': '#1b1e23',
-    'primary': '#e4e4e4',
-    'secondary': '#808080',
-    'muted': '#363a3e',
-    'red': '#f07071',
-    'orange': '#ea9755',
-    'yellow': '#d4c05e',
-    'green': '#7eb36a',
-    'teal': '#64b9c4',
-    'blue': '#85a2f7',
-    'purple': '#bc85d9',
-    'pink': '#e587b6',
-    'grey': '#a9b4c4',
-}
+from . import colors, font, labelfont, sourcefont
 
 
-def common():
+def theme(colors):
+    markColor = colors['text']
+    axisColor = colors['text']
+    gridColor = colors['grey']
+    backgroundColor = colors['background']
+    fontWeight = 400
+    symbolSize = 200
+
+    axis = {
+        'domainColor': gridColor,
+        'gridColor': gridColor,
+        'tickColor': gridColor,
+        'labelFont': labelfont,
+        'titleFont': font,
+        'labelColor': axisColor,
+        'titleColor': axisColor,
+    }
+
     return {
         'config': {
-            'view': {'height': 300, 'width': 400},
-            'mark': {'color': 'dark', 'fill': 'dark'},
-        }
+            'arc': {'fill': markColor,},
+            'area': {'fill': markColor,},
+            'axisBand': {'grid': False,},
+            'axisBottom': axis,
+            'axisLeft': axis,
+            'axisRight': axis,
+            'axisTop': axis,
+            'background': backgroundColor,
+            'group': {'fill': backgroundColor,},
+            'legend': {
+                'labelFont': labelfont,
+                'symbolSize': symbolSize,
+                'symbolType': 'circle',
+                'titleFont': font,
+            },
+            'line': {'color': markColor, 'stroke': markColor,},
+            'trail': {'color': markColor, 'stroke': markColor,},
+            'path': {'stroke': markColor,},
+            'point': {'filled': True, 'color': markColor, 'size': symbolSize, 'cursor': 'pointer',},
+            'range': {
+                'category': [
+                    colors[c]
+                    for c in [
+                        'red',
+                        'orange',
+                        'yellow',
+                        'green',
+                        'teal',
+                        'blue',
+                        'purple',
+                        'pink',
+                        'grey',
+                    ]
+                ],
+                # TODO.
+                #    "diverging": [
+                #        "#dc0d12",
+                #        "#e9686b",
+                #        "#fbe1e1",
+                #        "#dff4f9",
+                #        "#81d1e6",
+                #        "#03a3cd"
+                #    ],
+                #    "heatmap": [
+                #        "#fcdfef",
+                #        "#f8bfde",
+                #        "#f59fce",
+                #        "#f180be",
+                #        "#ee60ad",
+                #        "#eb409d",
+                #        "#e7208c",
+                #        "#e4007c",
+                #    ],
+            },
+            'symbol': {'shape': 'circle',},
+            'style': {
+                'bar': {'fill': markColor,},
+                'text': {'font': sourcefont, 'fontWeight': fontWeight,},
+            },
+            'title': {'anchor': 'start', 'fontWeight': fontWeight, 'font': font,},
+            'header': {'fontWeight': fontWeight, 'labelFont': labelfont, 'titleFont': font,},
+        },
     }
 
 
 def dark():
-    c = common()
-
-    return c
+    '''CarbonPlan dark theme entrypoint'''
+    c = colors('dark')
+    return theme(c)
 
 
 def light():
-    c = common()
-
-    return c
+    '''CarbonPlan light theme entrypoint'''
+    c = colors('light')
+    return theme(c)

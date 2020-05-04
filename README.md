@@ -7,7 +7,7 @@ A collection of plotting styles for [Matplotlib](https://matplotlib.org/) and [A
 ## Install
 
 ```
-pip install git://github.com/jhamman/carbonplan-styles.git
+pip install git+git://github.com/jhamman/carbonplan-styles.git
 ```
 
 ## Usage
