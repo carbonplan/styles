@@ -4,6 +4,8 @@ A collection of plotting styles for [Matplotlib](https://matplotlib.org/) and [A
 
 ![CI](https://github.com/jhamman/carbonplan-styles/workflows/CI/badge.svg)
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jhamman/carbonplan-styles/master?urlpath=lab)
+
 ## Install
 
 ```
