@@ -2,14 +2,14 @@
 
 A collection of plotting styles for [Matplotlib](https://matplotlib.org/) and [Altair](https://altair-viz.github.io/).
 
-![CI](https://github.com/jhamman/carbonplan-styles/workflows/CI/badge.svg)
+![CI](https://github.com/carbonplan/carbonplan-styles/workflows/CI/badge.svg)
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jhamman/carbonplan-styles/master?urlpath=lab)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/carbonplan/carbonplan-styles/master?urlpath=lab)
 
 ## Install
 
 ```
-pip install git+git://github.com/jhamman/carbonplan-styles.git
+pip install git+git://github.com/carbonplan/carbonplan-styles.git
 ```
 
 ## Usage
