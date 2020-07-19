@@ -23,7 +23,7 @@ Try it out on Binder:
 
 ## install
 
-```
+```shell
 pip install git+git://github.com/carbonplan/carbonplan-styles.git
 ```
 
