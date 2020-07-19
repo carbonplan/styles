@@ -26,7 +26,7 @@ Try it out on Binder:
 ## install
 
 ```
-pip install git+git://github.com/jhamman/carbonplan-styles.git
+pip install git+git://github.com/carbonplan/carbonplan-styles.git
 ```
 
 ## usage
