@@ -9,13 +9,11 @@
 
 [![GitHub][github-badge]][github]
 ![Build Status][]
-![dependabot][]
 ![MIT License][]
 
 [github]: https://github.com/carbonplan/styles
 [github-badge]: https://flat.badgen.net/badge/-/github?icon=github&label
 [build status]: https://flat.badgen.net/github/checks/carbonplan/styles
-[dependabot]: https://flat.badgen.net/dependabot/carbonplan/styles?icon=dependabot
 [mit license]: https://flat.badgen.net/badge/license/MIT/blue
 
 A collection of plotting styles for [Matplotlib](https://matplotlib.org/) and [Altair](https://altair-viz.github.io/).
