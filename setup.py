@@ -47,7 +47,14 @@ class PostInstallCommand(install):
 
     def run(self):
         install.run(self)
-        install_mplstyle()
+        try:
+            install_mplstyle()
+        except ImportError:
+            print(
+                'Failed to install matplotlib styles during install. '
+                'You can install them later by running '
+                '`carbonplan_styles.mpl.theme.install()`'
+            )
 
 
 CLASSIFIERS = [
