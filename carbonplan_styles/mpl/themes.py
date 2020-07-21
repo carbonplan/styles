@@ -1,4 +1,8 @@
-from carbonplan_styles import colors, font
+import os
+
+import matplotlib
+
+from carbonplan_styles import colors
 
 
 def make_style_dict(mode):
