@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v2.3.2
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2.1.1
+        uses: actions/setup-python@v2.1.2
         with:
           python-version: 3.8
       - name: Install Black
@@ -29,9 +29,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v2.3.2
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2.1.1
+        uses: actions/setup-python@v2.1.2
         with:
           python-version: 3.8
       - name: Install Flake8
@@ -46,9 +46,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v2.3.2
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2.1.1
+        uses: actions/setup-python@v2.1.2
         with:
           python-version: 3.8
       - name: Install isort
@@ -65,9 +65,9 @@ jobs:
       matrix:
         python-version: [3.6, 3.7, 3.8]
     steps:
-      - uses: actions/checkout@v2.3.1
+      - uses: actions/checkout@v2.3.2
       - name: Setup Python
-        uses: actions/setup-python@v2.1.1
+        uses: actions/setup-python@v2.1.2
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
@@ -85,6 +85,6 @@ jobs:
         run: |
           python -m pytest --junitxml=test-reports/junit.xml --cov=./ --verbose
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1.0.11
+        uses: codecov/codecov-action@v1.0.12
         with:
           file: test-reports/junit.xml
