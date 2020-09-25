@@ -41,3 +41,19 @@ def colors(mode='dark'):
     else:
         raise ValueError(mode)
     return colors
+
+
+banner = """-------------------------------
+   ███        ███        ███
+  ██          ███          ██
+ ██           ███           ██
+ ██      ██   ███   ██      ██
+ ██       ███ ███ ███       ██
+  ██         █████         ██
+   ███        ███        ███
+
+/ (carbon)plan
+/ carbonplan.org
+/ https://github.com/carbonplan
+-------------------------------
+"""
