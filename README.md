@@ -44,8 +44,6 @@ from carbonplan import styles
 styles.mpl.set_theme(style='carbonplan_dark')
 ```
 
-_Note: The install of this package adds Matplotlib style sheets to `~/.config/matplotlib`. This will only happen once and future updates will need to be done manually._
-
 ### altair
 
 ```python
