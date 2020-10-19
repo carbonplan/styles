@@ -40,9 +40,9 @@ Both styels/themes are automatically made available in Matplotlib and Altair.
 
 ```python
 import matplotlib.pyplot as plt
-from carbonplan.styles.mpl import dark  # carbonplan_dark
+from carbonplan.styles.mpl import set_theme
 
-plt.style.use(dark)
+set_theme(style='carbonplan_dark')
 ```
 
 _Note: The install of this package adds Matplotlib style sheets to `~/.config/matplotlib`. This will only happen once and future updates will need to be done manually._

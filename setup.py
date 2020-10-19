@@ -1,10 +1,6 @@
 import os
-import shutil
 
-import matplotlib
 from setuptools import find_packages, setup
-from setuptools.command.develop import develop
-from setuptools.command.install import install
 
 with open('requirements.txt') as f:
     install_requires = f.read().strip().split('\n')
@@ -15,46 +11,6 @@ if os.path.exists('README.md'):
         long_description = f.read()
 else:
     long_description = ''
-
-
-def install_mplstyle():
-    root = os.path.dirname(__file__)
-
-    for theme in ['carbonplan_dark', 'carbonplan_light']:
-        fname = f'{theme}.mplstyle'
-        stylefile = os.path.join('carbonplan_styles', 'mpl', fname)
-
-        mpl_stylelib_dir = os.path.join(matplotlib.get_configdir(), 'stylelib')
-        os.makedirs(mpl_stylelib_dir, exist_ok=True)
-
-        src = os.path.join(root, stylefile)
-        dst = os.path.join(mpl_stylelib_dir, fname)
-        if not os.path.exists(dst):
-            print('Installing style into', mpl_stylelib_dir)
-            shutil.copy(src, dst)
-
-
-class PostDevelopCommand(develop):
-    """Post-installation for development mode."""
-
-    def run(self):
-        develop.run(self)
-        install_mplstyle()
-
-
-class PostInstallCommand(install):
-    """Post-installation for installation mode."""
-
-    def run(self):
-        install.run(self)
-        try:
-            install_mplstyle()
-        except ImportError:
-            print(
-                'Failed to install matplotlib styles during install. '
-                'You can install them later by running '
-                '`carbonplan_styles.mpl.theme.install()`'
-            )
 
 
 CLASSIFIERS = [
@@ -96,5 +52,4 @@ setup(
     classifiers=CLASSIFIERS,
     use_scm_version={'version_scheme': 'post-release', 'local_scheme': 'dirty-tag'},
     setup_requires=['setuptools_scm', 'setuptools>=30.3.0'],
-    cmdclass={'develop': PostDevelopCommand, 'install': PostInstallCommand},
 )

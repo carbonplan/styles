@@ -1,4 +1,6 @@
-from . import colors, font, labelfont, sourcefont
+font = 'relative-mono-11-pitch-pro, Menlo, monospace'
+labelfont = 'relative-mono-11-pitch-pro, Menlo, monospace'
+sourcefont = 'relative-mono-11-pitch-pro, Menlo, monospace'
 
 
 def theme(colors):
@@ -23,11 +25,11 @@ def theme(colors):
         'config': {
             'arc': {'fill': markColor},
             'area': {'fill': markColor},
-            'axisBand': {'grid': False},
+            'axisX': {'grid': False},
+            'axisY': {'grid': False},
             'axisBottom': axis,
             'axisLeft': axis,
-            'axisRight': axis,
-            'axisTop': axis,
+            'view': {'stroke': None},
             'background': backgroundColor,
             'group': {'fill': backgroundColor},
             'legend': {
@@ -44,15 +46,15 @@ def theme(colors):
                 'category': [
                     colors[c]
                     for c in [
-                        'red',
-                        'orange',
-                        'yellow',
-                        'green',
-                        'teal',
                         'blue',
+                        'orange',
+                        'green',
+                        'red',
                         'purple',
                         'pink',
                         'grey',
+                        'yellow',
+                        'teal',
                     ]
                 ],
                 # TODO.
@@ -88,11 +90,13 @@ def theme(colors):
 
 def dark():
     '''CarbonPlan dark theme entrypoint'''
-    c = colors('dark')
-    return theme(c)
+    from .colors import dark
+
+    return theme(dark)
 
 
 def light():
     '''CarbonPlan light theme entrypoint'''
-    c = colors('light')
-    return theme(c)
+    from .colors import light
+
+    return theme(light)
