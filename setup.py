@@ -30,7 +30,6 @@ ENTRY_POINTS = {
         'carbonplan_dark = carbonplan_styles.altair:dark',
         'carbonplan_light = carbonplan_styles.altair:light',
     ],
-    'carbonplan.modules': ['styles = carbonplan_styles', 'styles.mpl = carbonplan_styles.mpl'],
 }
 
 
