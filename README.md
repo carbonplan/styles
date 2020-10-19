@@ -24,7 +24,7 @@ Try it out on Binder:
 ## install
 
 ```shell
-pip carbonplan-styles
+pip carbonplan[styles]
 ```
 
 ## usage
@@ -39,10 +39,9 @@ Both styels/themes are automatically made available in Matplotlib and Altair.
 ### matplotlib
 
 ```python
-import matplotlib.pyplot as plt
-from carbonplan.styles.mpl import set_theme
+from carbonplan import styles
 
-set_theme(style='carbonplan_dark')
+styles.mpl.set_theme(style='carbonplan_dark')
 ```
 
 _Note: The install of this package adds Matplotlib style sheets to `~/.config/matplotlib`. This will only happen once and future updates will need to be done manually._

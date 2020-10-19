@@ -1,8 +1,7 @@
 import pytest
-
-from carbonplan_styles.mpl import set_theme
+from carbonplan import styles
 
 
 @pytest.mark.parametrize('style', ['carbonplan_dark', 'carbonplan_light'])
 def test_set_style(style):
-    set_theme(style=style)
+    styles.mpl.set_theme(style=style)
