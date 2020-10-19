@@ -1,6 +1,6 @@
 from pkg_resources import DistributionNotFound, get_distribution
 
-from . import mpl  # noqa
+from . import altair, colors, mpl  # noqa
 
 try:
     version = get_distribution(__name__).version
