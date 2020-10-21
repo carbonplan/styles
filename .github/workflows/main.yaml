@@ -85,6 +85,6 @@ jobs:
         run: |
           python -m pytest --junitxml=test-reports/junit.xml --cov=./ --verbose
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1.0.13
+        uses: codecov/codecov-action@v1.0.14
         with:
           file: test-reports/junit.xml
