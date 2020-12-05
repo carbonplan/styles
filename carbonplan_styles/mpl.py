@@ -9,12 +9,12 @@ palette_colors = ['blue', 'orange', 'green', 'red', 'purple', 'pink', 'grey', 'y
 def get_style_dict(c):
 
     style = {
-        'axes.facecolor': c['background'],
+        'axes.facecolor': 'white',
         'axes.edgecolor': c['secondary'],
         'axes.grid': False,
         'axes.axisbelow': True,
         'axes.labelcolor': c['text'],
-        'figure.facecolor': c['background'],
+        'figure.facecolor': 'white',
         'grid.color': c['secondary'],
         'grid.linestyle': '-',
         'text.color': c['text'],
