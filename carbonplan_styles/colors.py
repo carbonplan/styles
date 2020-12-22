@@ -17,7 +17,7 @@ dark = {
 
 light = {
     'text': '#333333',
-    'background': '#ebebec',
+    'background': '#FFFFFF',
     'primary': '#484848',
     'secondary': '#b0b0b0',
     'muted': 'rgb(200,200,200)',
