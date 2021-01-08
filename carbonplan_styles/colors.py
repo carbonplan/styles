@@ -16,11 +16,11 @@ dark = {
 }
 
 light = {
-    'text': '#333333',
+    'text': '#1b1e23',
     'background': '#FFFFFF',
-    'primary': '#484848',
-    'secondary': '#b0b0b0',
-    'muted': 'rgb(200,200,200)',
+    'primary': '#1b1e23',
+    'secondary': '#808080',
+    'muted': '#b0afb1',
     'red': '#f07071',
     'orange': '#ea9755',
     'yellow': '#d4c05e',
