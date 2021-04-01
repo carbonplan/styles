@@ -35,35 +35,53 @@ light = {
 
 def colors(mode='dark'):
     if mode in ['dark', 'carbonplan_dark']:
-        c = dark
+        return dark
     elif mode in ['light', 'carbonplan_light']:
-        c = light
+        return light
     else:
         raise ValueError('unknown color mode %s' % mode)
-    return c
 
 
-def tags(mode='dark'):
+def hex_to_rgb(hex):
+    """
+    Converts hex to rgb colours
 
-    c = colors(mode=mode)
+    Parameters
+    ----------
+    hex : string
+        6 characters representing a hex color
 
-    return (
-        {
-            'mineralization': c['grey'],
-            'soil': c['orange'],
-            'biomass': c['yellow'],
-            'forests': c['green'],
-            'ocean': c['teal'],
-            'dac': c['purple'],
-            'biochar': c['yellow'],
-            'materials': c['yellow'],
-            'broker': c['grey'],
-            'beccs': c['yellow'],
-            'reforestation': c['green'],
-            'avoided conversion': c['green'],
-            'agroforestry': c['green'],
-            'burial': c['yellow'],
-            'phytoplankton': c['teal'],
-            'injection': c['grey'],
-        },
-    )
+    Returns
+    -------
+    rgb : tuple (length 3)
+        RGB values
+
+    References
+    ----------
+    https://towardsdatascience.com/beautiful-custom-colormaps-with-matplotlib-5bab3d1f0e72
+    """
+    hex = hex.strip('#')  # removes hash symbol if present
+    lv = len(hex)
+
+    return tuple(int(hex[i : i + lv // 3], 16) for i in range(0, lv, lv // 3))
+
+
+def rgb_to_dec(value):
+    """
+    Converts rgb to decimal colours (i.e. divides each value by 256)
+
+    Parameters
+    ----------
+    value: tuple (length 3)
+        RGB values
+
+    Returns
+    -------
+    dec : tuple (length 3)
+        Decimal color values
+
+    References
+    ----------
+    https://towardsdatascience.com/beautiful-custom-colormaps-with-matplotlib-5bab3d1f0e72
+    """
+    return tuple(v / 256 for v in value)
