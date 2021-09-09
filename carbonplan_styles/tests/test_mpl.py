@@ -51,8 +51,8 @@ def test_colormaps():
     for pieces in itertools.product(base_names, ['_light', '_dark'], '', '_r'):
         cmap_name = ''.join(pieces)
 
-        exp_camp = explicit_cmaps[cmap_name]
-        assert isinstance(exp_camp, ListedColormap)
+        exp_cmap = explicit_cmaps[cmap_name]
+        assert isinstance(exp_cmap, ListedColormap)
 
         imp_cmap = getattr(colormaps, cmap_name)
         assert isinstance(imp_cmap, ListedColormap)
@@ -60,7 +60,7 @@ def test_colormaps():
         mpl_cmap = cm.get_cmap(cmap_name)
         assert isinstance(mpl_cmap, ListedColormap)
 
-        assert exp_camp.colors == imp_cmap.colors
-        assert exp_camp.name == imp_cmap.name
-        assert exp_camp.colors == mpl_cmap.colors
-        assert exp_camp.name == mpl_cmap.name
+        assert exp_cmap.colors == imp_cmap.colors
+        assert exp_cmap.name == imp_cmap.name
+        assert exp_cmap.colors == mpl_cmap.colors
+        assert exp_cmap.name == mpl_cmap.name
