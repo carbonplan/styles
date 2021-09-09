@@ -15,13 +15,18 @@ def get_style_config(mode):
 
     c = colors(mode=mode)
 
+    if mode == 'light':
+        background = 'white'  # instead of c['background']
+    else:
+        background = c['background']
+
     style = {
-        'axes.facecolor': 'white',
+        'axes.facecolor': background,
         'axes.edgecolor': c['secondary'],
         'axes.grid': False,
         'axes.axisbelow': True,
         'axes.labelcolor': c['text'],
-        'figure.facecolor': 'white',
+        'figure.facecolor': background,
         'grid.color': c['secondary'],
         'grid.linestyle': '-',
         'text.color': c['text'],
