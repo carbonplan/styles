@@ -105,15 +105,18 @@ def get_continuous_cmap(hex_list, float_list=None, name=None):
     Creates and returns a color map that can be used in heat map figures.
     If float_list is not provided, colour map graduates linearly between each color in hex_list.
     If float_list is provided, each color in hex_list is mapped to the respective location in float_list.
+
     Parameters
     ----------
     hex_list : list
         Hex code strings
     float_list: list, optional
         List of floats between 0 and 1, same length as hex_list. Must start with 0 and end with 1.
+
     Returns
     ----------
     cmap : mcolors.LinearSegmentedColormap
+
     References
     ----------
     https://towardsdatascience.com/beautiful-custom-colormaps-with-matplotlib-5bab3d1f0e72
