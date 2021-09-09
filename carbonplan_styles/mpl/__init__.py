@@ -1,9 +1,12 @@
+import warnings
+
 import matplotlib as mpl
 import matplotlib.colors as mcolors
 import numpy as np
 import seaborn as sns
 
-from .colors import colors, hex_to_rgb, rgb_to_dec
+from ..colors import colors, hex_to_rgb, rgb_to_dec
+from . import colormaps  # noqa
 
 palette_colors = ['blue', 'orange', 'green', 'red', 'purple', 'pink', 'grey', 'yellow', 'teal']
 
@@ -32,7 +35,7 @@ def get_style_config(mode):
         'lines.solid_capstyle': 'round',
         'patch.edgecolor': c['secondary'],
         'patch.force_edgecolor': True,
-        'image.cmap': 'rocket',
+        'image.cmap': 'cool_light',
         'font.weight': '400',
         'font.family': 'monospace',
         'font.monospace': ['relative-mono-11-pitch-pro', 'Menlo', 'monospace'],
@@ -100,25 +103,26 @@ def set_theme(
 def get_continuous_cmap(hex_list, float_list=None, name=None):
     """
     Creates and returns a color map that can be used in heat map figures.
-
     If float_list is not provided, colour map graduates linearly between each color in hex_list.
     If float_list is provided, each color in hex_list is mapped to the respective location in float_list.
-
     Parameters
     ----------
     hex_list : list
         Hex code strings
     float_list: list, optional
         List of floats between 0 and 1, same length as hex_list. Must start with 0 and end with 1.
-
     Returns
     ----------
     cmap : mcolors.LinearSegmentedColormap
-
     References
     ----------
     https://towardsdatascience.com/beautiful-custom-colormaps-with-matplotlib-5bab3d1f0e72
     """
+
+    warnings.warn(
+        'get_continuous_cmap is deprecated, use carbonplan_styles.mpl.colormaps instead',
+        DeprecationWarning,
+    )
 
     if name is None:
         name = '-'.join(hex_list)
@@ -141,6 +145,12 @@ def get_continuous_cmap(hex_list, float_list=None, name=None):
 
 
 def get_colormap(name):
+
+    warnings.warn(
+        'get_colormap is deprecated, use carbonplan_styles.mpl.colormaps instead',
+        DeprecationWarning,
+    )
+
     if name == 'blues':
         return get_continuous_cmap(['#CFE0F9', '#588EF9', '#0432A5'])
     elif name == 'pinks':
