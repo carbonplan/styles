@@ -8,7 +8,7 @@ from matplotlib.colors import ListedColormap
 mod_dir = pathlib.Path(__file__).parent.parent
 
 
-@functools.cache
+@functools.lru_cache
 def colormaps():
 
     with open(mod_dir / 'data' / 'colormaps.json', mode='r') as f:
