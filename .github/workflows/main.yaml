@@ -4,7 +4,7 @@ on:
   push:
     branches: "*"
   pull_request:
-    branches: master
+    branches: main
 
 jobs:
   test:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7, 3.8]
+        python-version: [3.8, 3.9]
     steps:
       - uses: actions/checkout@v2.3.4
       - name: Setup Python
@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
-      - uses: actions/cache@v2.1.5
+      - uses: actions/cache@v2.1.6
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/dev-requirements.txt') }}
@@ -34,7 +34,7 @@ jobs:
         run: |
           python -m pytest --junitxml=test-reports/junit.xml --cov=./ --verbose
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1.4.1
+        uses: codecov/codecov-action@v2.1.0
         with:
           file: test-reports/junit.xml
 
