@@ -8,7 +8,7 @@ from matplotlib.colors import ListedColormap
 mod_dir = pathlib.Path(__file__).parent.parent
 
 
-@functools.lru_cache
+@functools.lru_cache()
 def colormaps():
     '''return a dictionary of colormaps'''
 
