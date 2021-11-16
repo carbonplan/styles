@@ -9,6 +9,7 @@
 
 [![GitHub][github-badge]][github]
 [![Build Status]][actions]
+[![codecov](https://codecov.io/gh/carbonplan/styles/branch/main/graph/badge.svg?token=NCBBIS7AJE)](https://codecov.io/gh/carbonplan/styles)
 ![MIT License][]
 
 [github]: https://github.com/carbonplan/styles
