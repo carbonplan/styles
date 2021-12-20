@@ -26,7 +26,7 @@ Try it out on Binder:
 ## install
 
 ```shell
-pip install carbonplan[styles]
+pip install "carbonplan[styles]"
 ```
 
 ## usage
