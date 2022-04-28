@@ -1,5 +1,9 @@
 <img
-  src='https://carbonplan-assets.s3.amazonaws.com/monogram/dark-small.png'
+  src='https://carbonplan-assets.s3.amazonaws.com/monogram/dark-small.png#gh-dark-mode-only'
+  height='48'
+/>
+<img
+  src='https://carbonplan-assets.s3.amazonaws.com/monogram/light-small.png#gh-light-mode-only'
   height='48'
 />
 
