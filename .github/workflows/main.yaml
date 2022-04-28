@@ -2,9 +2,13 @@ name: CI
 
 on:
   push:
-    branches: "*"
+    branches:
+      - main
   pull_request:
-    branches: main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
@@ -12,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8, 3.9]
+        python-version: ["3.8", "3.9", "3.10"]
     steps:
       - uses: actions/checkout@v3
       - name: Setup Python
@@ -37,10 +41,3 @@ jobs:
         uses: codecov/codecov-action@v2.1.0
         with:
           file: test-reports/junit.xml
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
-      - uses: pre-commit/action@v2.0.3
