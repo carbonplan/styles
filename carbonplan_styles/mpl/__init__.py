@@ -12,7 +12,6 @@ palette_colors = ['blue', 'orange', 'green', 'red', 'purple', 'pink', 'grey', 'y
 
 
 def get_style_config(mode):
-
     c = colors(mode=mode)
 
     if mode == 'light':
@@ -153,7 +152,6 @@ def get_continuous_cmap(hex_list, float_list=None, name=None):
 
 
 def get_colormap(name):
-
     warnings.warn(
         'get_colormap is deprecated, use carbonplan_styles.mpl.colormaps instead',
         DeprecationWarning,
