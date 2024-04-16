@@ -97,6 +97,8 @@ jobs:
     environment:
       name: release
       url: https://pypi.org/p/carbonplan-styles
+    permissions:
+      id-token: write
     steps:
       - uses: actions/download-artifact@v4
         with:
