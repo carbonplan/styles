@@ -86,7 +86,7 @@ exclude = [
 per-file-ignores = {}
 # E402: module level import not at top of file
 # E501: line too long - let black worry about that
-# E731: do not assign a lambda expression, use a
+# E731: do not assign a lambda expression, use a def
 ignore = ["E402", "E501", "E731"]
 select = [
     # Pyflakes
