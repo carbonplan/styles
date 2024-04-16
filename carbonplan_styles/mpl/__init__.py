@@ -158,8 +158,7 @@ def get_continuous_cmap(hex_list, float_list=None, name=None):
     cdict = dict()
     for num, col in enumerate(["red", "green", "blue"]):
         cdict[col] = [
-            [float_list[i], rgb_list[i][num], rgb_list[i][num]]
-            for i in range(len(float_list))
+            [float_list[i], rgb_list[i][num], rgb_list[i][num]] for i in range(len(float_list))
         ]
     cmap = mcolors.LinearSegmentedColormap(name, segmentdata=cdict, N=256)
 

@@ -1,0 +1,114 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools-scm[toml]>=6.2", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "carbonplan-styles"
+description = "CarbonPlan plotting styles"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "CarbonPlan", email = "tech@carbonplan.org" }]
+requires-python = ">=3.9"
+keywords=["matplotlib", "altair"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+dynamic = ["version"]
+
+dependencies = [
+    "altair",
+    "carbonplan",
+    "matplotlib",
+    "seaborn",
+]
+
+[project.optional-dependencies]
+dev = ["pytest","pytest-sugar","pytest-cov"]
+
+
+[project.entry-points."altair.vegalite.v5.theme"]
+carbonplan_dark = "carbonplan_styles.altair:dark"
+carbonplan_light = "carbonplan_styles.altair:light"
+
+[project.urls]
+repository = "https://github.com/carbonplan/style"
+
+[tool.setuptools.packages.find]
+include = ["carbonplan_styles*"]
+
+[tool.setuptools_scm]
+local_scheme = "node-and-date"
+fallback_version = "999"
+
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+skip-string-normalization = true
+
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+builtins = ["ellipsis"]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+per-file-ignores = {}
+# E402: module level import not at top of file
+# E501: line too long - let black worry about that
+# E731: do not assign a lambda expression, use a def
+ignore = ["E402", "E501", "E731"]
+select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I",
+    # Pyupgrade
+    "UP",
+]
+
+
+[tool.ruff.mccabe]
+max-complexity = 18
+
+[tool.ruff.isort]
+known-first-party = ["carbonplan_styles"]
+known-third-party = ["altair","matplotlib","numpy","pkg_resources","pytest","seaborn","setuptools"]
+
+
+[tool.pytest.ini_options]
+console_output_style = "count"
+addopts = "--cov=./ --cov-report=xml --verbose"
