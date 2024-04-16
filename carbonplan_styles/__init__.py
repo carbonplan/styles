@@ -1,11 +1,13 @@
-from pkg_resources import DistributionNotFound, get_distribution
+from importlib.metadata import PackageNotFoundError as _PackageNotFoundError
+from importlib.metadata import version as _version
 
 from . import altair, colors, mpl  # noqa
 
 try:
-    version = get_distribution(__name__).version
-except DistributionNotFound:  # pragma: no cover
-    version = "0.0.0"  # pragma: no cover
+    version = _version(__name__)
+except _PackageNotFoundError:
+    # package is not installed
+    version = "unknown"
 __version__ = version
 
 
