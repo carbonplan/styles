@@ -61,6 +61,11 @@ jobs:
   test-built-dist:
     needs: build-artifacts
     runs-on: ubuntu-latest
+    environment:
+      name: release
+      url: https://test.pypi.org/p/carbonplan-styles
+    permissions:
+      id-token: write
     steps:
       - uses: actions/setup-python@v5.0.0
         name: Install Python
@@ -82,7 +87,6 @@ jobs:
       - name: Publish package to TestPyPI
         uses: pypa/gh-action-pypi-publish@v1.8.14
         with:
-          password: ${{ secrets.TEST_PYPI_TOKEN }}
           repository-url: https://test.pypi.org/legacy/
           # verbose: true
 
@@ -90,6 +94,9 @@ jobs:
     needs: test-built-dist
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
+    environment:
+      name: release
+      url: https://pypi.org/p/carbonplan-styles
     steps:
       - uses: actions/download-artifact@v4
         with:
@@ -97,6 +104,3 @@ jobs:
           path: dist
       - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@v1.8.14
-        with:
-          password: ${{ secrets.PYPI_TOKEN }}
-          # verbose: true
