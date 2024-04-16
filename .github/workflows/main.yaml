@@ -15,26 +15,31 @@ jobs:
     name: ${{ matrix.python-version }}-build
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v4.5.0
+      - uses: actions/checkout@v4
+      - name: Install Conda environment from environment.yml
+        uses: mamba-org/setup-micromamba@v1
         with:
-          python-version: ${{ matrix.python-version }}
-          architecture: x64
-      - uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/dev-requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-      - run: |
-          python -m pip install -r dev-requirements.txt
-          python -m pip install --no-deps -e .
-          python -m pip list
-      - name: Running Tests
+          environment-name: carbonplan
+          condarc: |
+            channels:
+              - conda-forge
+              - nodefaults
+          cache-downloads: false
+          cache-environment: true
+          create-args: >-
+            python=${{ matrix.python-version }}
+      - name: Install package
+        run: |
+          python -m pip install -e .[dev]
+      - name: Conda list information
+        run: |
+          conda env list
+          conda list
+      - name: Run tests
         run: |
           python -m pytest --junitxml=test-reports/junit.xml --cov=./ --verbose
       - name: Upload coverage to Codecov
