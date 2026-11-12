@@ -1,0 +1,56 @@
+# based on this astral / uv example: https://docs.astral.sh/uv/guides/integration/github/#publishing-to-pypi
+
+name: publish to pypi
+
+# workflow_dispatch builds and smoke-tests wheel/sdist artifacts for branch
+# testing without publishing (attest/publish steps only run on tag pushes)
+on:
+  push:
+    tags:
+      - v*
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/carbonplan-styles
+    permissions:
+      id-token: write
+      contents: read
+      attestations: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+
+      - name: Install Python
+        run: uv python install 3.13
+
+      - name: Check tag matches version
+        if: github.event_name == 'push'
+        run: test "${GITHUB_REF_NAME#v}" = "$(uv version --short)"
+
+      - name: Build
+        run: uv build --no-sources
+
+      - name: Generate artifact attestation
+        if: github.event_name == 'push'
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: 'dist/*'
+
+      - name: Smoke test (wheel)
+        run: uv run --isolated --no-project --with dist/*.whl -- python -c "import carbonplan_styles; print(carbonplan_styles.__version__)"
+
+      - name: Smoke test (source distribution)
+        run: uv run --isolated --no-project --with dist/*.tar.gz -- python -c "import carbonplan_styles; print(carbonplan_styles.__version__)"
+
+      - name: Publish
+        if: github.event_name == 'push'
+        run: uv publish --check-url https://pypi.org/simple/ dist/*
