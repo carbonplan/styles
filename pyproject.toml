@@ -23,7 +23,7 @@ build-backend = "uv_build"
 dev = [
     "prek>=0.5.2",
     "pytest>=9.0.2",
-    "ty>=0.0.59",
+    "ty>=0.0.99",
     "xarray",
 ]
 
